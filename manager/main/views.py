@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
-# Create your views here.
+from .models import Task
 
 def index(request):
-    return HttpResponse('<h1> Hello Python </h1>')
+    tasks = Task.objects.order_by('-id')
+    return render(request, 'main/index.html', {'title': 'Home', 'tasks': tasks})
 
 def about(request):
-    return HttpResponse('<h1> About </h1>')
+    return render(request, 'main/about.html')
