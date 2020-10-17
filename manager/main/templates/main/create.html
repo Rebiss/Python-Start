@@ -1,0 +1,28 @@
+{% extends 'main/core.html' %}
+
+{% block title %}
+Create
+{% endblock %}
+
+{% block content %}
+<h1>Creact</h1>
+<form method="post">
+    {% csrf_token %}
+
+
+    <div class="form-group">
+        <label for="Name"> Name </label>
+        {{ form.title  }}
+    </div>
+    <div class="form-group">
+        <label for="Discrition"> Discrition </label>
+        {{ form.task  }}
+    </div>
+
+    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+        {{ error }}
+      </div>
+    
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}
